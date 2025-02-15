@@ -49,7 +49,7 @@ async function getMonth() {
             input: process.stdin,
             output: process.stdout
         });
-        h.question('Dej miesiąc i rok (yyyy-mm) [obecna -1]: ', month => {
+        h.question('Dej dzień, miesiąc i rok od/do (yyyy-mm-dd/yyyy-mm-dd) [poprzedni miesiąc]: ', month => {
             resolve(month);
             h.close();
         });
@@ -66,8 +66,8 @@ async function getMonth() {
         console.log('Pobieram dane z ' + dateFrom + ' do ' + dateTo);
         return;
     }
-    dateFrom = month + '-01';
-    dateTo = month + '-31';
+    dateFrom = month.split('/')[0];
+    dateTo = month.split('/')[1];
     console.log('Pobieram dane z ' + dateFrom + ' do ' + dateTo);
 
 }
