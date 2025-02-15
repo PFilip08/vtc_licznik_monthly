@@ -79,7 +79,7 @@ async function getAllJobs() {
     // get rest of the pages
     if (data.last_page > 1) {
         for (let i = 2; i <= data.last_page; i++) {
-            const jobs = await api.get('/company/'+companyid+'/jobs?dateFrom=2025-01-01&dateTo=2025-01-31&page='+i);
+            const jobs = await api.get('/company/'+companyid+`/jobs?dateFrom=${dateFrom}&dateTo=${dateTo}&page=`+i);
             data.data = data.data.concat(jobs.data.data);
         }
     }
